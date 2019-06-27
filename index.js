@@ -19,6 +19,12 @@ mongoose.connect(databaseConfig.url,{useNewUrlParser: true});
 const PORT = process.env.PORT || 4000
 const HOST = process.env.HOST || '127.0.0.1'
 
+app.use(session({
+    secret:'SleepyeyeS2017',
+    resave: true,
+    saveUninitialized: true
+}));
+
 app.use(cors());
 
 app.use(function(req,res,next){   
@@ -39,6 +45,10 @@ app.use(logger('dev'));
 var clients = {};
 
 require('./App/socket/socket')(io,clients)
+
+server.on('listening',function(){
+    console.log('ok, server is running');
+});
 
 server.listen(PORT,()=>console.log(`Live on ${PORT}`))
 routes(app);
