@@ -10,7 +10,7 @@
   "author": "ogembodenis2016@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "async": "^3.0.1",
+    "async": "^3.2.2",
     "axios": "^0.18.0",
     "base-64": "^0.1.0",
     "bcrypt": "^3.0.6",
